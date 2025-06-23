@@ -71,11 +71,154 @@
                 <option value="guido">Guido van Rossum</option>
                 <option value="ada">Ada Lovelace</option>
             </select>
-            <button class="btn">Get-Info</button>
+            <button class="btn" onclick="getInfo()">Get-Info</button>
         </div>
-        <div class="info-container">
-            <img  class="coder-img" src="./image/ss1.webp" >
+        <div id="info" class="info-container">
+            <img id="info" class="coder-img" src="./image/ss1.webp" >
          </div>
     </div>
+    <script>
+        const detailsProgrammer={
+            linus: {
+                image1:"https://cdn.britannica.com/99/124299-050-4B4D509F/Linus-Torvalds-2012.jpg",
+                name: "Linus Torvalds",
+                info: `<h3>1. Creating the Linux Kernel</h3>
+                In 1991, Linus Torvalds, then a student at the University of Helsinki in Finland, began developing a Unix-like kernel as a personal project.
+                He announced it on a newsgroup (comp.os.minix) on August 25, 1991, offering it for free under the GNU General Public License (GPL).
+                This project evolved into the Linux kernel, which is the foundation of many modern operating systems, including Ubuntu, Fedora, Debian, and Android.
+                <h3>2. Founding Git</h3>
+                In 2005, due to dissatisfaction with proprietary version control systems (notably BitKeeper), Linus created Git, a distributed version control systems.
+                Git is now the most widely used version control systems in the world, especially for software development (including Linux itself).
+                <h3>3. Philosophy and Influence</h3>
+                Linus is known for his pragmatic engineering approach, focusing on functionality and performance over ideology.
+                He has been both praised and criticized for his blunt and outspoken communication style, especially on Linux kernel mailing lists.
+                Despite controversies, his technical leadership has shaped the open-source movement.`
+            },
+            dennis: {
+              image1:"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRXixM6c65waJjb6UJwcHwdz_MehFS9n_kuU_BWTwYHM7MWH3Pu",
+                name: "Dennis Ritchie",
+                info: `Created the C programming language and co-developed Unix. A pioneer of modern computing.
+                <h3>1. 🖥️ C Programming Language</h3>
+                <h3>Developed: </h3>In the early 1970s (1972–1973)
+                <h3>Motivation:</h3>To create a powerful yet portable language to rewrite UNIX
+                <h3>Innovations:</h3>
+                Structured programming
+                Low-level access with high-level syntax
+                Portability across hardware platforms
+                <h3>Legacy:</h3>
+                Foundation of many modern languages (C++, Java, C#, Objective-C, Go, Rust)
+                Still widely used in system/kernel development (including Linux, Windows, embedded systems)
+                <h3>2. 🖥️ UNIX Operating System
+                Co-Created with:</h3> Ken Thompson
+                Timeline: Developed in the late 1960s and early 1970s
+                <h3>Key Features:</h3>
+                Multitasking and multiuser environment
+                File system hierarchy
+                Small, modular tools (philosophy: “do one thing well”)
+                <h3>Impact:</h3>
+                Foundation for modern OSes (Linux, BSD, macOS, Android)
+                Introduced concepts like pipes, shell scripting, and daemons
+                <h3>3. 📚 The C Programming Language (Book)</h3>
+                Co-authored with Brian Kernighan
+                Published in 1978
+                Known as the K&R C Bible
+                Set the standards for documentation and coding style
+                Helped standardize C and influenced ANSI C`
+            },
+            grace: {
+              image1:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTvWS7_EtSdQ05W5gi63gLzZLqG6iQfWq4rsrFZBTtrC6RTbghAMS5PawJDMDQtQYr08m22x9JAZnK8PwswlsGNfA",
+                name: "Grace Hopper",
+                info: `Developed the first compiler for a programming language and was a rear admiral in the U.S. Navy.
+               <h3> 1. 🖥️ Programming Pioneer</h3>
+                Worked on the Harvard Mark I, one of the earliest electromechanical computers.
+                Wrote the first operational compiler—a program that translates written code into machine-readable code.
+                <h3>2. 🧾 Compiler and COBOL</h3>
+                Developed the first compiler, known as A-0 System (1952), paving the way for modern programming languages.
+                Was instrumental in developing COBOL (Common Business-Oriented Language) in the late 1950s.
+                One of the earliest high-level programming languages.
+                Still used in legacy financial and government systems today.
+                <h3>3. 🐞 "Debugging" </h3>the Computer
+                Popularized the term "debugging" in computer science.
+                Once found an actual moth stuck in a computer relay and removed it—called it a “bug.”
+                While the term predates her, her story helped make it part of tech culture.`
+            },
+            guido: {
+              image1:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSJBaw8FKrtL9dfYqJgOIOS3JL0ad5cnMFWx0BAITPkJ8GYhokNBuYeuZGP4zEamWfbr73CGtlBocVoqaaxn7dCw",
+                name: "Guido van Rossum",
+                info: `Created Python, one of the most popular and easy-to-learn programming languages today.
+                 <h3>Python Programming Language
+                🐍 Origin of Python:
+                <h3>Created:</h3> Late 1980s, first released in 1991
+                <h3>Initial Goal:</h3> To create a language that emphasized:
+                Code readability
+                Ease of use
+                Flexibility and power
+                <h3>Name Inspiration:</h3> Not named after the snake, but after the British comedy group Monty Python.
+                <h3>🧱 Key Features of Python:</h3>
+                Simple, clear syntax
+                Dynamically typed, interpreted
+                Extensive standard library ("batteries included")
+                Supports multiple paradigms: procedural, object-oriented, and functional
+                <h3>🚀 Adoption and Impact:</h3>
+                Widely used in web development, data science, AI/ML, education, automation, and more
+                One of the most popular languages in the world as of 2025
+                Inspired a huge ecosystem (e.g., NumPy, Pandas, TensorFlow, Django)
+                <h3>👨‍💻 Career Path
+                Pre-Python:</h3>
+                Worked at the Centrum Wiskunde & Informatica (CWI) in the Netherlands.
+                Contributed to the ABC language, which influenced Python’s design.
+                After Python's Release:
+                CNRI (Corporation for National Research Initiatives): Continued developing Python in the 1990s.
+                Zope Corporation: Worked on Python-based web app frameworks.
+                Google (2005–2012): Worked on Python-related projects internally.
+                Dropbox (2013–2019): Helped improve Python infrastructure at scale.
+                Microsoft (2020–2023): Joined the Developer Division to work on Python performance improvements, including Python 3.11’s faster interpreter.
+                <h3>👑 "Benevolent Dictator for Life" (BDFL)</h3>
+                Held the title of BDFL of Python—he made the final decisions on language changes.
+                Stepped down as BDFL: In July 2018, stating it was time for others to lead.
+                The community now uses a Python Steering Council to make decisions.`
+            },
+            ada: {
+              image1:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs9hBxWCNIdrVZsmxGrm3nMRpAETskRTfhPw&s",
+                name: "Ada Lovelace",
+                info: `Regarded as the first computer programmer. Wrote the first algorithm for Charles Babbages Analytical Engine.
+                <h3>First Computer Program
+                Collaboration with Charles Babbage:</h3>
+                Ada met Charles Babbage, the inventor of the Analytical Engine, in the 1830s.
+                Babbage called her the “Enchantress of Numbers.”
+                Her Historic Work (1842–1843):
+                Translated an Italian mathematician’s paper on Babbage’s Analytical Engine.
+                Added extensive notes (three times longer than the original paper), labeled A through G.
+                <h3>Key Insight:</h3>
+                Note G included an algorithm to compute Bernoulli numbers—widely recognized as the first published computer program.
+                She also:
+                Understood the machine could manipulate symbols, not just numbers
+                Theorized that such a machine might compose music or art—a vision of general-purpose computing
+                <h3>🌟 Why She’s Important</h3>
+                She saw beyond computation: While Babbage focused on number-crunching, Ada foresaw that machines could follow instructions and perform symbolic operations.
+                She laid the groundwork for modern computing concepts such as loops and conditional logic.
+                Advocated for computational creativity, a concept still central to AI and programming philosophy today.
+                <h3>🏅 Legacy</h3>
+                Often called the “First Computer Programmer.”
+                Honored in countless ways:
+                Ada programming language (used by the U.S. Department of Defense) named in her honor.
+                Ada Lovelace Day (second Tuesday of October) celebrates women in STEM.
+                Statues, documentaries, books, and educational initiatives commemorate her work.`
+            }
+            };
+            function getInfo(){
+            const selectElement = document.getElementById("selectName").value;
+            const infoElement = document.getElementById("info");
+
+            if(detailsProgrammer[selectElement]){
+                infoElement.innerHTML = `<img src="${detailsProgrammer[selectElement].image1}" height="400px" width="400px"> 
+                <h2>${detailsProgrammer[selectElement].name}</h2>
+                <p>${detailsProgrammer[selectElement].info} </p>`;
+            }
+            else {
+                infoElement.innerHTML = "<p>Please select a programmer from the lists.</p>";
+            }
+        }
+    </script>
 </body>
 </html>
